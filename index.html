@@ -1,264 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Table</title>
-  <style>
-    table {
-      border: 10px solid black; /* Set the table border size and color */
-    }
-    tr{
-        border: 10px solid black;
-    }
-    td{
-        border: 10px solid black;
-    }
-
-    img {
-      height: 100px;
-      width: 100px;
-    }
-  </style>
+  <title>TIC - TAC - TOE</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <link rel="manifest" href="manifest.json">
+  <script>
+        //if browser support service worker
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('sw.js');
+        };
+  </script>
 </head>
+
 <body>
 
-<table border="1">
-  <tr>
-    <td><img src="white.jpg" alt="Image 1" class="img1" onclick="check(1);"></td>
-    <td><img src="white.jpg" alt="Image 2" class="img2" onclick="check(2);"></td>
-    <td><img src="white.jpg" alt="Image 3" class="img3" onclick="check(3);"></td>
-  </tr>
-  <tr>
-    <td><img src="white.jpg" alt="Image 4" class="img4" onclick="check(4);"></td>
-    <td><img src="white.jpg" alt="Image 5" class="img5" onclick="check(5);"></td>
-    <td><img src="white.jpg" alt="Image 6" class="img6" onclick="check(6);"></td>
-  </tr>
-  <tr>
-    <td><img src="white.jpg" alt="Image 7" class="img7" onclick="check(7);"></td>
-    <td><img src="white.jpg" alt="Image 8" class="img8" onclick="check(8);"></td>
-    <td><img src="white.jpg" alt="Image 9" class="img9" onclick="check(9);"></td>
-  </tr>
-</table>
-<h3 class="winner"></h3>
-<script>
-    let imageElement1 = document.querySelector('.img1')
-    let imageElement2 = document.querySelector('.img2')
-    let imageElement3 = document.querySelector('.img3')
-    let imageElement4 = document.querySelector('.img4')
-    let imageElement5 = document.querySelector('.img5')
-    let imageElement6 = document.querySelector('.img6')
-    let imageElement7 = document.querySelector('.img7')
-    let imageElement8 = document.querySelector('.img8')
-    let imageElement9 = document.querySelector('.img9')
-    
-    let resultElement4 = document.querySelector('.winner')
-    let box1 =0;
-    let box2 =0;
-    let box3 =0;
-    let box4 =0;
-    let box5 =0;
-    let box6 =0;
-    let box7 =0;
-    let box8 =0;
-    let box9 =0;
-    let userCheck = 1
-    function check(no){
-        if (no === 1 && box1 != 1 && box1 != 2){
-            if(userCheck == 1 ){
-                box1 = 1
-                imageElement1.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box1 = 2
-                imageElement1.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-            }
-         
-        }
-        if (no === 2 && box2 != 1 && box2 != 2){
-    
-            if(userCheck == 1){
-                box2 = 1
-                imageElement2.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box2 = 2
-                imageElement2.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-            }
-        }
-        if (no === 3  && box3 != 1 && box3 != 2){
-           
-            if(userCheck == 1){
-                box3 = 1
-                imageElement3.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box3 = 2
-                imageElement3.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-              }
-        
-        }
-        if (no === 4 && box4 != 1 && box4 != 2){
-            if(userCheck == 1 ){
-                box4 = 1
-                imageElement4.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box4 = 2
-                imageElement4.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-            }
-        
-        }
-        if (no === 5 && box5 != 1 && box5 != 2){
-            if(userCheck == 1 ){
-                box5 = 1
-                imageElement5.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box5 = 2
-                imageElement5.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-            }
-        
-        }
-        if (no === 6  && box6 != 1 && box6 != 2){
-            if(userCheck == 1){
-                box6 = 1
-                imageElement6.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box6 = 2
-                imageElement6.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-            }
-        
-        }
-        if (no === 7  && box7 != 1 && box7 != 2){
-                    
-            if(userCheck == 1){
-                box7 = 1
-                imageElement7.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box7 = 2
-                imageElement7.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-            }
-        
-        }
-        if (no === 8  && box8 != 1 && box8 != 2){
-        
-            if(userCheck == 1){
-                box8 = 1
-                imageElement8.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box8 = 2
-                imageElement8.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-            }
-        
-        }
-        if (no === 9 && box9 != 1 && box9 != 2){
-        
-            if(userCheck == 1 ){
-                box9 = 1
-                imageElement9.src = 'x.png'
-                userCheck = 2
-                winnerCheck()
-            }else{
-                box9 = 2
-                imageElement9.src = 'o.webp'
-                userCheck =1
-                winnerCheck()
-            }
-        
-        }
-    }
-    function winnerCheck() {
-      if (box1 == 1 && box2 == 1 && box3 ==  1){
-            resultElement4.innerHTML = `Player 1 WINS`
-      }
-      if (box1 == 1 && box4 == 1 && box7 ==  1){
-        resultElement4.innerHTML = `Player 1 WINS`
-      }
-      if (box1 == 1 && box5 == 1 && box9 ==  1){
-        resultElement4.innerHTML = `Player 1 WINS`
-      }
-      if (box3 == 1 && box6 == 1 && box7 ==  1){
-        resultElement4.innerHTML = `Player 1 WINS`
-      }
-      if (box1 == 3 && box5 == 1 && box7 ==  1){
-        resultElement4.innerHTML = `Player 1 WINS`
-      }
-      if (box4 == 1 && box5 == 1 && box6 ==  1){
-        resultElement4.innerHTML = `Player 1 WINS`
-      } 
-      if (box7 == 1 && box8 == 1 && box9 ==  1){
-        resultElement4.innerHTML = `Player 1 WINS`
-      }
-      if (box2 == 1 && box5 == 1 && box8 ==  1){
-        resultElement4.innerHTML = `Player 1 WINS`
-      }
-      if (box3 == 1 && box6 == 1 && box9 ==  1){
-        resultElement4.innerHTML = `Player 1 WINS`
-      }
-      
+  <div class="container">
+    <center>
+      <h2 style="color: #3498db;">TIC - TAC - TOE</h2>
+    </center>
+    <table>
+      <tr>
+        <td><img src="white.jpg" alt="Image 1" class="img1" onclick="check(1);"></td>
+        <td><img src="white.jpg" alt="Image 2" class="img2" onclick="check(2);"></td>
+        <td><img src="white.jpg" alt="Image 3" class="img3" onclick="check(3);"></td>
+      </tr>
+      <tr>
+        <td><img src="white.jpg" alt="Image 4" class="img4" onclick="check(4);"></td>
+        <td><img src="white.jpg" alt="Image 5" class="img5" onclick="check(5);"></td>
+        <td><img src="white.jpg" alt="Image 6" class="img6" onclick="check(6);"></td>
+      </tr>
+      <tr>
+        <td><img src="white.jpg" alt="Image 7" class="img7" onclick="check(7);"></td>
+        <td><img src="white.jpg" alt="Image 8" class="img8" onclick="check(8);"></td>
+        <td><img src="white.jpg" alt="Image 9" class="img9" onclick="check(9);"></td>
+      </tr>
+    </table>
+    <h3 class="winner"></h3>
+  </div>
 
-      if (box1 == 2 && box2 == 2 && box3 ==  2){
-        resultElement4.innerHTML = `Player 2 WINS`
-      }
-      if (box1 == 2 && box4 == 2 && box7 ==  2){
-        resultElement4.innerHTML = `Player 2 WINS`
-      }
-      if (box1 == 2 && box5 == 2 && box9 ==  2){
-        resultElement4.innerHTML = `Player 2 WINS`
-      }
-      if (box3 == 2 && box6 == 2 && box7 ==  2){
-        resultElement4.innerHTML = `Player 2 WINS`
-      }
-      if (box1 == 2 && box5 == 2 && box7 ==  2){
-        resultElement4.innerHTML = `Player 2 WINS`
-      }
-      if (box4 == 2 && box5 == 2 && box6 ==  2){
-        resultElement4.innerHTML = `Player 2 WINS`
-      } 
-      if (box7 == 2 && box8 == 2 && box9 ==  2){
-        resultElement4.innerHTML = `Player 2 WINS`
-      }
-      if (box2 == 1 && box5 == 1 && box8 ==  1){
-        resultElement4.innerHTML = `Player 2 WINS`
-      }
-      if (box3 == 1 && box6 == 1 && box9 ==  1){
-        resultElement4.innerHTML = `Player 2 WINS`
-      }
-
-      if(box1 != 0 && box2 !=0  && box3 !=0  && box4 !=0  && box5 !=0  && box6 !=0  && box7 !=0  && box8 !=0  && box9 !=0){
-        resultElement4.innerHTML = `Match draw`
-      }
-            
-    }
-</script>
+  <div class="button-container">
+    <button class="reset-button" onclick="resetScore()">Reset Score</button>
+    <button onclick="restartGame()" class="restart-button">Restart Game</button>
+  </div>
+  <h3 class="result"></h3>
+  <script src="script.js"> </script>
 
 </body>
+
 </html>
